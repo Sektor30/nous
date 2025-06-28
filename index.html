@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NOUS - Maqueta</title>
+  <title>NOUS - Mooc</title>
   <link rel="shortcut icon" href="./assets/img/nous.png" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -156,6 +156,36 @@
     }
     .modal {
       z-index: 1050;
+    }
+    /* Estilos mejorados para modales */
+    .modal-content {
+      border: none;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .modal-body {
+      padding: 2rem;
+    }
+    .modal-body img {
+      transition: transform 0.3s ease;
+    }
+    .modal-body img:hover {
+      transform: scale(1.05);
+    }
+    /* Responsive para modales */
+    @media (max-width: 768px) {
+      .modal-body {
+        padding: 1.5rem;
+      }
+      .modal-body .row {
+        flex-direction: column;
+      }
+      .modal-body .col-md-6 {
+        margin-bottom: 1.5rem;
+      }
+      .modal-body .col-md-6:last-child {
+        margin-bottom: 0;
+      }
     }
     /* Efectos hover para navegación */
     .nav-link {
@@ -368,7 +398,7 @@
       <div class="row g-4">
         
         <div class="col-md-4">
-          <div class="card-mooc" data-bs-toggle="modal" data-bs-target="#moocModal" style="cursor:pointer;">
+          <div class="card-mooc" data-bs-toggle="modal" data-bs-target="#levitinModal" style="cursor:pointer;">
             <img src="./assets/img/logo-levitin.png" alt="levitin Logo" style="height: 130px; margin-bottom: 12px;">
             <h4 class="fw-bold mb-1">LEVITIN</h4>
             <div class="mb-3" style="font-size:0.95rem;">Isabella ... y Juliana ...</div>
@@ -377,7 +407,7 @@
           
         </div>
         <div class="col-md-4">
-          <div class="card-mooc" data-bs-toggle="modal" data-bs-target="#moocModal" style="cursor:pointer;">
+          <div class="card-mooc" data-bs-toggle="modal" data-bs-target="#lookModal" style="cursor:pointer;">
             <img src="./assets/img/lookLogoWh.png" alt="look Logo" style="height: 120px; margin-bottom: 12px;">
             <h4 class="fw-bold mb-1">LOOK</h4>
             <div class="mb-3" style="font-size:0.95rem;">nombres participantes equipo </div>
@@ -388,7 +418,7 @@
           
         </div>
         <div class="col-md-4">
-          <div class="card-mooc" data-bs-toggle="modal" data-bs-target="#moocModal" style="cursor:pointer;">
+          <div class="card-mooc" data-bs-toggle="modal" data-bs-target="#fortisModal" style="cursor:pointer;">
             <img src="./assets/img/Mini-logo-fortis.png" alt="fortis Logo" style="height: 100px; margin-bottom: 12px;">
             <h4 class="fw-bold mb-1">FORTIS</h4>
             <div class="mb-3" style="font-size:0.95rem;">nombres participantes equipo </div>
@@ -399,7 +429,7 @@
           
         </div>
         <div class="col-md-4">
-          <div class="card-mooc" data-bs-toggle="modal" data-bs-target="#moocModal" style="cursor:pointer;">
+          <div class="card-mooc" data-bs-toggle="modal" data-bs-target="#soulmiaModal" style="cursor:pointer;">
             <img src="./assets/img/Logosoulmia.png" alt="soulmia Logo" style="height: 100px; margin-bottom: 12px;">
             <h4 class="fw-bold mb-1">SOULMIA</h4>
             <div class="mb-3" style="font-size:0.95rem;">nombres participantes equipo </div>
@@ -408,7 +438,7 @@
         </div>
 
         <div class="col-md-4">
-            <div class="card-mooc text-center p-4" data-bs-toggle="modal" data-bs-target="#moocModal" style="cursor:pointer;">
+            <div class="card-mooc text-center p-4" data-bs-toggle="modal" data-bs-target="#aidenModal" style="cursor:pointer;">
               <img src="./assets/img/logo-aiden.png" alt="kanji Logo" style="height: 100px; margin-bottom: 12px;">
               <h4 class="fw-bold mb-1">AIDEN</h4>
               <div class="mb-3" style="font-size:0.95rem;">nombres participantes equipo </div>
@@ -418,7 +448,7 @@
 
 
         <div class="col-md-4">
-          <div class="card-mooc" data-bs-toggle="modal" data-bs-target="#moocModal" style="cursor:pointer;">
+          <div class="card-mooc" data-bs-toggle="modal" data-bs-target="#kanjiModal" style="cursor:pointer;">
             <img src="./assets/img/Logo-kanji.png" alt="kanji Logo" style="height: 100px; margin-bottom: 12px;">
             <h4 class="fw-bold mb-1">KANJI</h4>
             <div class="mb-3" style="font-size:0.95rem;">nombres participantes equipo </div>
@@ -454,9 +484,165 @@
   <div class="modal fade" id="moocModal" tabindex="-1" aria-labelledby="moocModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
       <div class="modal-content">
+        <div class="modal-header border-0 bg-navy text-white">
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
         <div class="modal-body bg-navy text-white modal-body-80vh">
-          <h4 id="moocModalLabel">Título del MOOC</h4>
-          <p>Contenido del curso o información adicional aquí.</p>
+          <div class="row align-items-center min-vh-50">
+            <div class="col-md-6 d-flex align-items-center justify-content-center p-4">
+              <img src="./assets/img/logoNous.svg" alt="Logo" class="img-fluid" style="max-width: 200px;">
+            </div>
+            <div class="col-md-6 d-flex align-items-center p-4">
+              <div>
+                <h4 id="moocModalLabel" class="fw-bold mb-3">Título del MOOC</h4>
+                <p class="mb-0">descripción</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal LEVITIN -->
+  <div class="modal fade" id="levitinModal" tabindex="-1" aria-labelledby="levitinModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0 bg-navy text-white">
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body bg-navy text-white modal-body-80vh">
+          <div class="row align-items-center min-vh-50">
+            <div class="col-md-6 d-flex align-items-center justify-content-center p-4">
+              <img src="./assets/img/logo-levitin.png" alt="Levitin Logo" class="img-fluid" style="max-width: 200px;">
+            </div>
+            <div class="col-md-6 d-flex align-items-center p-4">
+              <div>
+                <h4 id="levitinModalLabel" class="fw-bold mb-3">LEVITIN</h4>
+                <p class="mb-0">descripción</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal LOOK -->
+  <div class="modal fade" id="lookModal" tabindex="-1" aria-labelledby="lookModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0 bg-navy text-white">
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body bg-navy text-white modal-body-80vh">
+          <div class="row align-items-center min-vh-50">
+            <div class="col-md-6 d-flex align-items-center justify-content-center p-4 ">
+              <img src="./assets/img/lookLogoWh.png" alt="Look Logo" class="img-fluid" style="max-width: 200px;">
+            </div>
+            <div class="col-md-6 d-flex align-items-center p-4">
+              <div>
+                <h4 id="lookModalLabel" class="fw-bold mb-3">LOOK</h4>
+                <p class="mb-0">descripción</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal FORTIS -->
+  <div class="modal fade" id="fortisModal" tabindex="-1" aria-labelledby="fortisModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0 bg-navy text-white">
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body bg-navy text-white modal-body-80vh">
+          <div class="row align-items-center min-vh-50">
+            <div class="col-md-6 d-flex align-items-center justify-content-center p-4">
+              <img src="./assets/img/Mini-logo-fortis.png" alt="Fortis Logo" class="img-fluid" style="max-width: 200px;">
+            </div>
+            <div class="col-md-6 d-flex align-items-center p-4">
+              <div>
+                <h4 id="fortisModalLabel" class="fw-bold mb-3">FORTIS</h4>
+                <p class="mb-0">descripción</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal SOULMIA -->
+  <div class="modal fade" id="soulmiaModal" tabindex="-1" aria-labelledby="soulmiaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0 bg-navy text-white">
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body bg-navy text-white modal-body-80vh">
+          <div class="row align-items-center min-vh-50">
+            <div class="col-md-6 d-flex align-items-center justify-content-center p-4">
+              <img src="./assets/img/Logosoulmia.png" alt="Soulmia Logo" class="img-fluid" style="max-width: 200px;">
+            </div>
+            <div class="col-md-6 d-flex align-items-center p-4">
+              <div>
+                <h4 id="soulmiaModalLabel" class="fw-bold mb-3">SOULMIA</h4>
+                <p class="mb-0">descripción</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal AIDEN -->
+  <div class="modal fade" id="aidenModal" tabindex="-1" aria-labelledby="aidenModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0 bg-navy text-white">
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body bg-navy text-white modal-body-80vh">
+          <div class="row align-items-center min-vh-50">
+            <div class="col-md-6 d-flex align-items-center justify-content-center p-4">
+              <img src="./assets/img/logo-aiden.png" alt="Aiden Logo" class="img-fluid" style="max-width: 200px;">
+            </div>
+            <div class="col-md-6 d-flex align-items-center p-4">
+              <div>
+                <h4 id="aidenModalLabel" class="fw-bold mb-3">AIDEN</h4>
+                <p class="mb-0">descripción</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal KANJI -->
+  <div class="modal fade" id="kanjiModal" tabindex="-1" aria-labelledby="kanjiModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0 bg-navy text-white">
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body bg-navy text-white modal-body-80vh">
+          <div class="row align-items-center min-vh-50">
+            <div class="col-md-6 d-flex align-items-center justify-content-center p-4">
+              <img src="./assets/img/Logo-kanji.png" alt="Kanji Logo" class="img-fluid" style="max-width: 200px;">
+            </div>
+            <div class="col-md-6 d-flex align-items-center p-4">
+              <div>
+                <h4 id="kanjiModalLabel" class="fw-bold mb-3">KANJI</h4>
+                <p class="mb-0">descripción</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -465,37 +651,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   
   <script>
-    // Prevenir el scroll al abrir modales
     document.addEventListener('DOMContentLoaded', function() {
-      const modal = document.getElementById('moocModal');
-      const modalInstance = new bootstrap.Modal(modal);
-      
-      // Capturar todos los elementos que abren el modal
-      const modalTriggers = document.querySelectorAll('[data-bs-toggle="modal"]');
-      
-      modalTriggers.forEach(trigger => {
-        trigger.addEventListener('click', function(e) {
-          e.preventDefault();
-          
-          // Obtener la posición actual de la página
-          const currentScroll = window.pageYOffset;
-          
-          // Abrir el modal
-          modalInstance.show();
-          
-          // Mantener la posición de scroll después de que el modal se abra
-          setTimeout(() => {
-            window.scrollTo(0, currentScroll);
-          }, 10);
-        });
-      });
-      
-      // Cuando se cierra el modal, restaurar el scroll normal
-      modal.addEventListener('hidden.bs.modal', function() {
-        document.body.classList.remove('modal-open');
-        document.body.style.overflow = '';
-      });
-
       // Funcionalidad para cerrar el menú hamburguesa al hacer clic en un enlace
       const navLinks = document.querySelectorAll('.nav-link');
       const navbarCollapse = document.querySelector('.navbar-collapse');
