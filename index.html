@@ -6,6 +6,9 @@
   <title>NOUS - Maqueta</title>
   <link rel="shortcut icon" href="./assets/img/nous.png" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+
   <style>
     body {
       background: #F5F5F5;
@@ -104,13 +107,13 @@
     }
     .nous-logo {
       font-weight: 100;
-      font-size: 6rem;
+      font-size: 4rem;
       letter-spacing: 2px;
       display: flex;
       align-items: center;
     }
     .nous-logo img {
-      height: 7.8rem;
+      height:2.8rem;
       margin-right: 6px;
     }
     .footer-logo {
@@ -129,7 +132,10 @@
       display: block;
       margin: 0 auto;
     }
-    @media (max-width: 991px) {
+    @media (max-width: 1000px) {
+     
+
+
       .about-img {
         margin-top: 32px;
       }
@@ -170,19 +176,144 @@
     .nav-link:hover::after {
       width: 100%;
     }
+    /* Estilos para navbar responsive */
+    .navbar-toggler {
+      border: none;
+      padding: 0.25rem 0.5rem;
+      background: transparent;
+    }
+    .navbar-toggler:focus {
+      box-shadow: none;
+      outline: none;
+    }
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+    /* Ajustes responsive para el logo */
+    @media (max-width: 993px) {
+      .nous-logo {
+        font-size: 2.5rem;
+      }
+      .nous-logo img {
+        height: 2rem;
+      }
+      .navbar-nav {
+        text-align: center;
+        margin-top: 1rem;
+        width: 100%;
+      }
+      .nav-item {
+        margin: 0.5rem 0;
+      }
+      .nav-link {
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
+      .nav-link:last-child {
+        border-bottom: none;
+      }
+      .nav-link::after {
+        display: none;
+      }
+      .navbar-collapse {
+        background: rgba(7, 20, 64, 0.95);
+        border-radius: 8px;
+        margin-top: 1rem;
+        padding: 1rem 0;
+      }
+    }
+    /* Estilos para desktop (≥994px) */
+    @media (min-width: 994px) {
+      .navbar-nav {
+        flex-direction: row;
+        align-items: center;
+      }
+      .nav-item {
+        margin: 0 0.5rem;
+      }
+      .nav-link {
+        padding: 0.5rem 1rem;
+        border-bottom: none;
+        font-size: 1rem;
+        font-weight: 400;
+        transition: all 0.3s ease;
+      }
+      .nav-link:hover {
+        color: #7B93D7 !important;
+        transform: translateY(-1px);
+      }
+      .nav-link::after {
+        display: block;
+      }
+      .navbar-collapse {
+        background: transparent;
+        border-radius: 0;
+        margin-top: 0;
+        padding: 0;
+      }
+    }
+    @media (max-width: 576px) {
+      .nous-logo {
+        font-size: 2rem;
+      }
+      .nous-logo img {
+        height: 1.8rem;
+      }
+      .nav-link {
+        font-size: 1rem;
+        padding: 0.75rem 0;
+      }
+    }
+    /* Estilos específicos para footer responsive */
+    @media (max-width: 767px) {
+      .footer-logo {
+        height: 6rem;
+        margin: 0.5rem 0;
+      }
+      .footer-text {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+      }
+    }
+    @media (max-width: 575px) {
+      .footer-logo {
+        height: 5rem;
+        margin: 0.3rem 0;
+      }
+      .footer-text {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+      }
+    }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  
 </head>
 <body>
   <!-- Header -->
   <nav class="navbar navbar-expand-lg bg-navy-dark py-3">
     <div class="container">
       <a class="navbar-brand nous-logo text-white" href="#">
-        <img src="../nous/assets/img/Nous_logo.png" alt="NOUS Logo" >
+        <img src="./assets/img/entire-logo.png" alt="NOUS Logo" >
       </a>
-      <div class="ms-auto d-flex align-items-center">
-        <a href="#sobre-nosotros" class="nav-link text-white">Sobre Nosotros</a>
-        <a href="#moocs" class="nav-link text-white ms-3">Moocs</a>
+      
+      <!-- Botón hamburguesa -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <!-- Menú colapsable -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a href="#sobre-nosotros" class="nav-link text-white">Sobre Nosotros</a>
+          </li>
+          <li class="nav-item">
+            <a href="#moocs" class="nav-link text-white">Moocs</a>
+          </li>
+        </ul>
       </div>
     </div>
   </nav>
@@ -290,14 +421,20 @@
 
   <!-- Footer -->
   <footer class="bg-navy py-4 mt-5">
-    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
-      <p class="footer-text mb-3 mb-md-0">
-        Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
-      </p>
-      <div class="d-flex align-items-center">
-        <span class="nous-logo text-white"></span>
-        <img src="../nous/assets/img/Nous_logo.png" alt="NOUS Logo" class="footer-logo ">
-        <img src="../nous/assets/img/logosena.png" alt="SENA Logo" class="footer-logo">
+    <div class="container">
+      <div class="row align-items-center justify-content-between">
+        <div class="col-12 col-sm-12 col-md-6 mb-4 mb-md-0">
+          <p class="footer-text text-center text-md-start">
+            Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+          </p>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6">
+          <div class="d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-md-end">
+            <span class="nous-logo text-white mb-3 mb-sm-0 me-sm-3"></span>
+            <img src="./assets/img/Nous_logo.png" alt="NOUS Logo" class="footer-logo mb-3 mb-sm-0 me-sm-3">
+            <img src="./assets/img/logosena.png" alt="SENA Logo" class="footer-logo">
+          </div>
+        </div>
       </div>
     </div>
   </footer>
@@ -346,6 +483,33 @@
       modal.addEventListener('hidden.bs.modal', function() {
         document.body.classList.remove('modal-open');
         document.body.style.overflow = '';
+      });
+
+      // Funcionalidad para cerrar el menú hamburguesa al hacer clic en un enlace
+      const navLinks = document.querySelectorAll('.nav-link');
+      const navbarCollapse = document.querySelector('.navbar-collapse');
+      const navbarToggler = document.querySelector('.navbar-toggler');
+      
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          // Cerrar el menú si está abierto en dispositivos móviles
+          if (window.innerWidth < 994) {
+            const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+              hide: true
+            });
+          }
+        });
+      });
+
+      // Cerrar menú al hacer clic fuera de él
+      document.addEventListener('click', function(e) {
+        if (!navbarCollapse.contains(e.target) && !navbarToggler.contains(e.target)) {
+          if (navbarCollapse.classList.contains('show')) {
+            const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+              hide: true
+            });
+          }
+        }
       });
     });
   </script>
