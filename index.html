@@ -37,6 +37,16 @@
       background: #7B93D7;
       color: #232B47;
     }
+    .btn-light {
+      transition: all 0.3s ease;
+    }
+    .btn-light:hover {
+      background-color: #0dcaf0 !important;
+      border-color: #0dcaf0 !important;
+      color: #000 !important;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(13, 202, 240, 0.3);
+    }
     .btn-filter {
       background: #E6E9F2;
       color: #232B47;
@@ -46,6 +56,13 @@
       margin-right: 8px;
       margin-bottom: 8px;
       padding: 6px 18px;
+      transition: all 0.3s ease;
+    }
+    .btn-filter:hover {
+      background: #7B93D7;
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(123, 147, 215, 0.3);
     }
     .btn-filter.active, .btn-filter:focus {
       background: #7B93D7;
@@ -63,6 +80,27 @@
       box-shadow: 0 2px 12px rgba(35,43,71,0.08);
       margin-bottom: 24px;
       height: 500px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .card-mooc:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 25px rgba(35,43,71,0.2);
+      background: linear-gradient(90deg, #232B47 60%, #2d3654 100%);
+    }
+    .card-mooc img {
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 2;
+      transform-origin: center center;
+      padding: 3px;
+    }
+    .card-mooc:hover img {
+      transform: scale(1.3);
+      z-index: 3;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
     }
     .nous-logo {
       font-weight: 100;
@@ -70,12 +108,10 @@
       letter-spacing: 2px;
       display: flex;
       align-items: center;
-      b
     }
     .nous-logo img {
       height: 7.8rem;
       margin-right: 6px;
-      
     }
     .footer-logo {
       height: 9.2rem;
@@ -92,8 +128,6 @@
       height: auto;
       display: block;
       margin: 0 auto;
-      
-      
     }
     @media (max-width: 991px) {
       .about-img {
@@ -103,6 +137,38 @@
     .modal-body-80vh {
       height: 80vh;
       overflow-y: auto;
+    }
+    /* Estilos para evitar el scroll al abrir modales */
+    .modal-open {
+      overflow: hidden;
+    }
+    .modal-backdrop {
+      z-index: 1040;
+    }
+    .modal {
+      z-index: 1050;
+    }
+    /* Efectos hover para navegación */
+    .nav-link {
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .nav-link:hover {
+      color: #7B93D7 !important;
+      transform: translateY(-1px);
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: #7B93D7;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
     }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
@@ -161,7 +227,7 @@
         
         <div class="col-md-4">
           <div class="card-mooc" data-bs-toggle="modal" data-bs-target="#moocModal" style="cursor:pointer;">
-            <img src="./assets/img/logo-levitin.png" alt="levitin Logo" style="height: 60px; margin-bottom: 12px;">
+            <img src="./assets/img/logo-levitin.png" alt="levitin Logo" style="height: 130px; margin-bottom: 12px;">
             <h4 class="fw-bold mb-1">LEVITIN</h4>
             <div class="mb-3" style="font-size:0.95rem;">Isabella ... y Juliana ...</div>
             <a href="#" class="btn btn-light btn-navy px-4">Ver sitio</a>
@@ -170,9 +236,9 @@
         </div>
         <div class="col-md-4">
           <div class="card-mooc" data-bs-toggle="modal" data-bs-target="#moocModal" style="cursor:pointer;">
-            <img src="./assets/img/lookLogoWh.png" alt="look Logo" style="height: 60px; margin-bottom: 12px;">
+            <img src="./assets/img/lookLogoWh.png" alt="look Logo" style="height: 120px; margin-bottom: 12px;">
             <h4 class="fw-bold mb-1">LOOK</h4>
-            <div class="mb-3" style="font-size:0.95rem;">Stefanny Hurtado &amp; Sebastian Lopez</div>
+            <div class="mb-3" style="font-size:0.95rem;">nombres participantes equipo </div>
             <a href="#" class="btn btn-light btn-navy px-4">Ver sitio</a>
 
 
@@ -181,9 +247,9 @@
         </div>
         <div class="col-md-4">
           <div class="card-mooc" data-bs-toggle="modal" data-bs-target="#moocModal" style="cursor:pointer;">
-            <img src="./assets/img/Mini-logo-fortis.png" alt="fortis Logo" style="height: 60px; margin-bottom: 12px;">
+            <img src="./assets/img/Mini-logo-fortis.png" alt="fortis Logo" style="height: 100px; margin-bottom: 12px;">
             <h4 class="fw-bold mb-1">FORTIS</h4>
-            <div class="mb-3" style="font-size:0.95rem;">Stefanny Hurtado &amp; Sebastian Lopez</div>
+            <div class="mb-3" style="font-size:0.95rem;">nombres participantes equipo </div>
             <a href="#" class="btn btn-light btn-navy px-4">Ver sitio</a>
 
 
@@ -192,18 +258,18 @@
         </div>
         <div class="col-md-4">
           <div class="card-mooc" data-bs-toggle="modal" data-bs-target="#moocModal" style="cursor:pointer;">
-            <img src="./assets/img/Logosoulmia.png" alt="soulmia Logo" style="height: 60px; margin-bottom: 12px;">
+            <img src="./assets/img/Logosoulmia.png" alt="soulmia Logo" style="height: 100px; margin-bottom: 12px;">
             <h4 class="fw-bold mb-1">SOULMIA</h4>
-            <div class="mb-3" style="font-size:0.95rem;">Stefanny Hurtado &amp; Sebastian Lopez</div>
+            <div class="mb-3" style="font-size:0.95rem;">nombres participantes equipo </div>
             <a href="#" class="btn btn-light btn-navy px-4">Ver sitio</a>
           </div>
         </div>
 
         <div class="col-md-4">
             <div class="card-mooc text-center p-4" data-bs-toggle="modal" data-bs-target="#moocModal" style="cursor:pointer;">
-              <img src="./assets/img/logo-aiden.png" alt="kanji Logo" style="height: 60px; margin-bottom: 12px;">
+              <img src="./assets/img/logo-aiden.png" alt="kanji Logo" style="height: 100px; margin-bottom: 12px;">
               <h4 class="fw-bold mb-1">AIDEN</h4>
-              <div class="mb-3" style="font-size:0.95rem;">Stefanny Hurtado &amp; Sebastian Lopez</div>
+              <div class="mb-3" style="font-size:0.95rem;">nombres participantes equipo </div>
               <a href="#" class="btn btn-light btn-navy px-4">Ver sitio</a>
             </div>
           </div>
@@ -211,9 +277,9 @@
 
         <div class="col-md-4">
           <div class="card-mooc" data-bs-toggle="modal" data-bs-target="#moocModal" style="cursor:pointer;">
-            <img src="./assets/img/Logo-kanji.png" alt="kanji Logo" style="height: 60px; margin-bottom: 12px;">
+            <img src="./assets/img/Logo-kanji.png" alt="kanji Logo" style="height: 100px; margin-bottom: 12px;">
             <h4 class="fw-bold mb-1">KANJI</h4>
-            <div class="mb-3" style="font-size:0.95rem;">Stefanny Hurtado &amp; Sebastian Lopez</div>
+            <div class="mb-3" style="font-size:0.95rem;">nombres participantes equipo </div>
             <a href="#" class="btn btn-light btn-navy px-4">Ver sitio</a>
           </div>
     
@@ -249,5 +315,39 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Prevenir el scroll al abrir modales
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('moocModal');
+      const modalInstance = new bootstrap.Modal(modal);
+      
+      // Capturar todos los elementos que abren el modal
+      const modalTriggers = document.querySelectorAll('[data-bs-toggle="modal"]');
+      
+      modalTriggers.forEach(trigger => {
+        trigger.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // Obtener la posición actual de la página
+          const currentScroll = window.pageYOffset;
+          
+          // Abrir el modal
+          modalInstance.show();
+          
+          // Mantener la posición de scroll después de que el modal se abra
+          setTimeout(() => {
+            window.scrollTo(0, currentScroll);
+          }, 10);
+        });
+      });
+      
+      // Cuando se cierra el modal, restaurar el scroll normal
+      modal.addEventListener('hidden.bs.modal', function() {
+        document.body.classList.remove('modal-open');
+        document.body.style.overflow = '';
+      });
+    });
+  </script>
 </body>
 </html>
