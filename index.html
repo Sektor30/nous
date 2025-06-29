@@ -134,11 +134,112 @@
       height: auto;
       display: block;
       margin: 0 auto;
+      animation: floatScale 6s ease-in-out infinite;
+      transform-origin: center center;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+      transition: all 0.5s ease;
+    }
+    .about-img:hover {
+      animation-play-state: paused;
+      transform: scale(1.1) rotate(2deg);
+      filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4));
+    }
+    @keyframes floatScale {
+      0% {
+        transform: scale(1) translateY(0px) rotate(0deg);
+        filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+      }
+      25% {
+        transform: scale(1.05) translateY(-10px) rotate(1deg);
+        filter: drop-shadow(0 15px 25px rgba(0,0,0,0.35));
+      }
+      50% {
+        transform: scale(1.1) translateY(-5px) rotate(0deg);
+        filter: drop-shadow(0 20px 30px rgba(0,0,0,0.4));
+      }
+      75% {
+        transform: scale(1.05) translateY(-10px) rotate(-1deg);
+        filter: drop-shadow(0 15px 25px rgba(0,0,0,0.35));
+      }
+      100% {
+        transform: scale(1) translateY(0px) rotate(0deg);
+        filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+      }
+    }
+    .about-img::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+      animation: shine 4s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes shine {
+      0% {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+    }
+    .about-img-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      padding: 20px;
+      background: linear-gradient(135deg, rgba(123, 147, 215, 0.1) 0%, rgba(35, 43, 71, 0.1) 100%);
+    }
+    .about-img-container::after {
+      content: '';
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      width: 4px;
+      height: 4px;
+      background: rgba(123, 147, 215, 0.6);
+      border-radius: 50%;
+      animation: particle1 8s ease-in-out infinite;
+    }
+    .about-img-container::before {
+      content: '';
+      position: absolute;
+      top: 80%;
+      right: 15%;
+      width: 6px;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      animation: particle2 6s ease-in-out infinite;
+    }
+    @keyframes particle1 {
+      0%, 100% {
+        transform: translateY(0px) scale(1);
+        opacity: 0.6;
+      }
+      50% {
+        transform: translateY(-20px) scale(1.2);
+        opacity: 1;
+      }
+    }
+    @keyframes particle2 {
+      0%, 100% {
+        transform: translateY(0px) scale(1);
+        opacity: 0.4;
+      }
+      50% {
+        transform: translateY(-15px) scale(1.1);
+        opacity: 0.8;
+      }
     }
     @media (max-width: 1000px) {
-     
-
-
       .about-img {
         margin-top: 32px;
       }
@@ -486,7 +587,9 @@
         </div>
         <div class="col-lg-4 d-flex justify-content-end align-items-end ">
           <!-- Imagen ilustrativa alineada a la derecha -->
-          <img src="./assets/img/nous.png" alt="Ilustración" class="about-img align-items-end ">
+          <div class="about-img-container">
+            <img src="./assets/img/logonoussimplified.svg" alt="NOUS Logo" class="about-img">
+          </div>
         </div>
       </div>
     </div>
