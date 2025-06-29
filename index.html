@@ -428,6 +428,14 @@
         right: 5px !important;
       }
     }
+    /* Mantener posición del scroll al abrir modales */
+    .modal.fade .modal-dialog {
+      transition: transform .3s ease-out;
+      transform: translate(0,-50px);
+    }
+    .modal.show .modal-dialog {
+      transform: none;
+    }
   </style>
   
 </head>
@@ -835,6 +843,9 @@
   <script>
     // flechas de navegacion en loop de los modales
     document.addEventListener('DOMContentLoaded', function() {
+      // Variables para controlar el scroll
+      let scrollPosition = 0;
+      
       // Event listeners para teclas de navegación
       document.addEventListener('keydown', function(e) {
         if (document.body.classList.contains('modal-open')) {
@@ -859,6 +870,37 @@
             }
           }
         }
+      });
+      
+      // Controlar el scroll al abrir modales
+      const modals = ['levitinModal', 'lookModal', 'fortisModal', 'soulmiaModal', 'aidenModal', 'kanjiModal'];
+      
+      modals.forEach(modalId => {
+        const modal = document.getElementById(modalId);
+        
+        // Cuando se abre un modal
+        modal.addEventListener('show.bs.modal', function() {
+          // Guardar la posición actual del scroll
+          scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+          
+          // Prevenir scroll del body
+          document.body.style.overflow = 'hidden';
+          document.body.style.position = 'fixed';
+          document.body.style.top = `-${scrollPosition}px`;
+          document.body.style.width = '100%';
+        });
+        
+        // Cuando se cierra un modal
+        modal.addEventListener('hidden.bs.modal', function() {
+          // Restaurar el scroll
+          document.body.style.overflow = '';
+          document.body.style.position = '';
+          document.body.style.top = '';
+          document.body.style.width = '';
+          
+          // Restaurar la posición del scroll
+          window.scrollTo(0, scrollPosition);
+        });
       });
       
       // Funcionalidad para cerrar el menú hamburguesa al hacer clic en un enlace
