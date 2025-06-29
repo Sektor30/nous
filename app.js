@@ -1,3 +1,9 @@
+
+
+<script>
+  AOS.init();
+</script>
+
 // flechas de navegacion en loop de los modales
 document.addEventListener('DOMContentLoaded', function() {
     // Variables para controlar el scroll
