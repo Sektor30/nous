@@ -128,6 +128,7 @@
       font-size: 1rem;
       margin-bottom: 0;
     }
+    /* Animación creativa para la imagen ilustrativa */
     .about-img {
       max-width: 1000px;
       width: 100%;
@@ -139,11 +140,13 @@
       filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
       transition: all 0.5s ease;
     }
+    
     .about-img:hover {
       animation-play-state: paused;
       transform: scale(1.1) rotate(2deg);
       filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4));
     }
+    
     @keyframes floatScale {
       0% {
         transform: scale(1) translateY(0px) rotate(0deg);
@@ -166,6 +169,8 @@
         filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
       }
     }
+    
+    /* Efecto de brillo adicional */
     .about-img::before {
       content: '';
       position: absolute;
@@ -177,6 +182,7 @@
       animation: shine 4s ease-in-out infinite;
       pointer-events: none;
     }
+    
     @keyframes shine {
       0% {
         transform: translateX(-100%);
@@ -587,9 +593,7 @@
         </div>
         <div class="col-lg-4 d-flex justify-content-end align-items-end ">
           <!-- Imagen ilustrativa alineada a la derecha -->
-          <div class="about-img-container">
-            <img src="./assets/img/logonoussimplified.svg" alt="NOUS Logo" class="about-img">
-          </div>
+          <img src="./assets/img/logonoussimplified.svg" alt="NOUS Logo" class="about-img">
         </div>
       </div>
     </div>
