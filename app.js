@@ -33,6 +33,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
     });
+
+    
     
     // Controlar el scroll al abrir modales
     const modals = ['levitinModal', 'lookModal', 'fortisModal', 'soulmiaModal', 'aidenModal', 'kanjiModal'];
