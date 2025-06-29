@@ -1,5 +1,7 @@
-// Inicializar AOS correctamente
-AOS.init();
+// Inicializar AOS correctamente cuando el DOM esté listo
+/* if (typeof AOS !== 'undefined') {
+  AOS.init();
+} */
 
 // flechas de navegacion en loop de los modales
 document.addEventListener('DOMContentLoaded', function() {
