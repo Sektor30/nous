@@ -1,8 +1,5 @@
-
-
-<script>
-  AOS.init();
-</script>
+// Inicializar AOS correctamente
+AOS.init();
 
 // flechas de navegacion en loop de los modales
 document.addEventListener('DOMContentLoaded', function() {
