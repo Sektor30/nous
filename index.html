@@ -329,6 +329,105 @@
         margin-bottom: 1rem;
       }
     }
+    /* Flechas de navegación para modales */
+    .modal-nav-arrow {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1060;
+      background: rgba(35, 43, 71, 0.9);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    .modal-nav-arrow:hover {
+      background: rgba(123, 147, 215, 0.9);
+      transform: translateY(-50%) scale(1.1);
+      color: white;
+    }
+    .modal-nav-arrow.prev {
+      left: 20px;
+    }
+    .modal-nav-arrow.next {
+      right: 20px;
+    }
+    .modal-nav-arrow:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .modal-nav-arrow:disabled:hover {
+      background: rgba(35, 43, 71, 0.9);
+      transform: translateY(-50%);
+    }
+    /* Prevenir scroll del body cuando modal está abierto */
+    body.modal-open {
+      overflow: hidden;
+      position: fixed;
+      width: 100%;
+    }
+    /* Responsive para flechas de navegación */
+    @media (max-width: 768px) {
+      .modal-nav-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+      }
+      .modal-nav-arrow.prev {
+        left: 10px;
+      }
+      .modal-nav-arrow.next {
+        right: 10px;
+      }
+    }
+    @media (max-width: 480px) {
+      .modal-nav-arrow {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+      }
+      .modal-nav-arrow.prev {
+        left: 5px;
+      }
+      .modal-nav-arrow.next {
+        right: 5px;
+      }
+    }
+    /* Estilos para flechas dentro de los modales */
+    .modal-body .btn-link {
+      text-decoration: none;
+      transition: all 0.3s ease;
+      opacity: 0.7;
+    }
+    .modal-body .btn-link:hover {
+      opacity: 1;
+      transform: scale(1.1);
+      text-decoration: none;
+    }
+    .modal-body .btn-link:focus {
+      box-shadow: none;
+      outline: none;
+    }
+    /* Responsive para flechas dentro de modales */
+    @media (max-width: 768px) {
+      .modal-body .btn-link {
+        font-size: 1.2rem !important;
+      }
+      .modal-body .btn-link.start-0 {
+        left: 5px !important;
+      }
+      .modal-body .btn-link.end-0 {
+        right: 5px !important;
+      }
+    }
   </style>
   
 </head>
@@ -487,7 +586,15 @@
         <div class="modal-header border-0 bg-navy text-white">
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body bg-navy text-white modal-body-80vh">
+        <div class="modal-body bg-navy text-white modal-body-80vh position-relative">
+          <!-- Flecha anterior dentro del modal -->
+          <button class="btn btn-link text-white position-absolute start-0 top-50 translate-middle-y ms-3" style="z-index: 10; font-size: 1.5rem;" onclick="goToPrevModal()">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <!-- Flecha siguiente dentro del modal -->
+          <button class="btn btn-link text-white position-absolute end-0 top-50 translate-middle-y me-3" style="z-index: 10; font-size: 1.5rem;" onclick="goToNextModal()">
+            <i class="fas fa-chevron-right"></i>
+          </button>
           <div class="row align-items-center min-vh-50">
             <div class="col-md-6 d-flex align-items-center justify-content-center p-4">
               <img src="./assets/img/logoNous.svg" alt="Logo" class="img-fluid" style="max-width: 200px;">
@@ -511,7 +618,15 @@
         <div class="modal-header border-0 bg-navy text-white">
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body bg-navy text-white modal-body-80vh">
+        <div class="modal-body bg-navy text-white modal-body-80vh position-relative">
+          <!-- Flecha anterior dentro del modal -->
+          <button class="btn btn-link text-white position-absolute start-0 top-50 translate-middle-y ms-3" style="z-index: 10; font-size: 1.5rem;" onclick="goToPrevModal()">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <!-- Flecha siguiente dentro del modal -->
+          <button class="btn btn-link text-white position-absolute end-0 top-50 translate-middle-y me-3" style="z-index: 10; font-size: 1.5rem;" onclick="goToNextModal()">
+            <i class="fas fa-chevron-right"></i>
+          </button>
           <div class="row align-items-center min-vh-50">
             <div class="col-md-6 d-flex align-items-center justify-content-center p-4">
               <img src="./assets/img/logo-levitin.png" alt="Levitin Logo" class="img-fluid" style="max-width: 200px;">
@@ -535,7 +650,15 @@
         <div class="modal-header border-0 bg-navy text-white">
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body bg-navy text-white modal-body-80vh">
+        <div class="modal-body bg-navy text-white modal-body-80vh position-relative">
+          <!-- Flecha anterior dentro del modal -->
+          <button class="btn btn-link text-white position-absolute start-0 top-50 translate-middle-y ms-3" style="z-index: 10; font-size: 1.5rem;" onclick="goToPrevModal()">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <!-- Flecha siguiente dentro del modal -->
+          <button class="btn btn-link text-white position-absolute end-0 top-50 translate-middle-y me-3 border border-warning" style="z-index: 10; font-size: 1.5rem;" onclick="goToNextModal()">
+            <i class="fas fa-chevron-right"></i>
+          </button>
           <div class="row align-items-center min-vh-50">
             <div class="col-md-6 d-flex align-items-center justify-content-center p-4 ">
               <img src="./assets/img/lookLogoWh.png" alt="Look Logo" class="img-fluid" style="max-width: 200px;">
@@ -559,7 +682,15 @@
         <div class="modal-header border-0 bg-navy text-white">
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body bg-navy text-white modal-body-80vh">
+        <div class="modal-body bg-navy text-white modal-body-80vh position-relative">
+          <!-- Flecha anterior dentro del modal -->
+          <button class="btn btn-link text-white position-absolute start-0 top-50 translate-middle-y ms-3" style="z-index: 10; font-size: 1.5rem;" onclick="goToPrevModal()">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <!-- Flecha siguiente dentro del modal -->
+          <button class="btn btn-link text-white position-absolute end-0 top-50 translate-middle-y me-3" style="z-index: 10; font-size: 1.5rem;" onclick="goToNextModal()">
+            <i class="fas fa-chevron-right"></i>
+          </button>
           <div class="row align-items-center min-vh-50">
             <div class="col-md-6 d-flex align-items-center justify-content-center p-4">
               <img src="./assets/img/Mini-logo-fortis.png" alt="Fortis Logo" class="img-fluid" style="max-width: 200px;">
@@ -583,7 +714,15 @@
         <div class="modal-header border-0 bg-navy text-white">
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body bg-navy text-white modal-body-80vh">
+        <div class="modal-body bg-navy text-white modal-body-80vh position-relative">
+          <!-- Flecha anterior dentro del modal -->
+          <button class="btn btn-link text-white position-absolute start-0 top-50 translate-middle-y ms-3" style="z-index: 10; font-size: 1.5rem;" onclick="goToPrevModal()">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <!-- Flecha siguiente dentro del modal -->
+          <button class="btn btn-link text-white position-absolute end-0 top-50 translate-middle-y me-3" style="z-index: 10; font-size: 1.5rem;" onclick="goToNextModal()">
+            <i class="fas fa-chevron-right"></i>
+          </button>
           <div class="row align-items-center min-vh-50">
             <div class="col-md-6 d-flex align-items-center justify-content-center p-4">
               <img src="./assets/img/Logosoulmia.png" alt="Soulmia Logo" class="img-fluid" style="max-width: 200px;">
@@ -607,7 +746,15 @@
         <div class="modal-header border-0 bg-navy text-white">
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body bg-navy text-white modal-body-80vh">
+        <div class="modal-body bg-navy text-white modal-body-80vh position-relative">
+          <!-- Flecha anterior dentro del modal -->
+          <button class="btn btn-link text-white position-absolute start-0 top-50 translate-middle-y ms-3" style="z-index: 10; font-size: 1.5rem;" onclick="goToPrevModal()">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <!-- Flecha siguiente dentro del modal -->
+          <button class="btn btn-link text-white position-absolute end-0 top-50 translate-middle-y me-3" style="z-index: 10; font-size: 1.5rem;" onclick="goToNextModal()">
+            <i class="fas fa-chevron-right"></i>
+          </button>
           <div class="row align-items-center min-vh-50">
             <div class="col-md-6 d-flex align-items-center justify-content-center p-4">
               <img src="./assets/img/logo-aiden.png" alt="Aiden Logo" class="img-fluid" style="max-width: 200px;">
@@ -631,7 +778,15 @@
         <div class="modal-header border-0 bg-navy text-white">
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body bg-navy text-white modal-body-80vh">
+        <div class="modal-body bg-navy text-white modal-body-80vh position-relative">
+          <!-- Flecha anterior dentro del modal -->
+          <button class="btn btn-link text-white position-absolute start-0 top-50 translate-middle-y ms-3" style="z-index: 10; font-size: 1.5rem;" onclick="goToPrevModal()">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <!-- Flecha siguiente dentro del modal -->
+          <button class="btn btn-link text-white position-absolute end-0 top-50 translate-middle-y me-3" style="z-index: 10; font-size: 1.5rem;" onclick="goToNextModal()">
+            <i class="fas fa-chevron-right"></i>
+          </button>
           <div class="row align-items-center min-vh-50">
             <div class="col-md-6 d-flex align-items-center justify-content-center p-4">
               <img src="./assets/img/Logo-kanji.png" alt="Kanji Logo" class="img-fluid" style="max-width: 200px;">
@@ -648,10 +803,137 @@
     </div>
   </div>
 
+  <!-- Flechas de navegación para modales -->
+ <!--  <button class="modal-nav-arrow prev" id="modalPrevBtn" style="display: none;">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+  <button class="modal-nav-arrow next" id="modalNextBtn" style="display: none;">
+    <i class="fas fa-chevron-right"></i>
+  </button> -->
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   
   <script>
+    // Variables globales para las funciones de navegación
+    let currentModalIndex = 0;
+    const modals = [
+     
+      'levitinModal',
+      'lookModal', 
+      'fortisModal',
+      'soulmiaModal',
+      'aidenModal',
+      'kanjiModal'
+    ];
+    
+    // Función global para navegar al modal anterior (con loop)
+    function goToPrevModal() {
+      // Cerrar modal actual
+      const currentModal = document.getElementById(modals[currentModalIndex]);
+      const currentModalInstance = bootstrap.Modal.getInstance(currentModal);
+      currentModalInstance.hide();
+      
+      // Calcular índice anterior con loop
+      currentModalIndex = currentModalIndex === 0 ? modals.length - 1 : currentModalIndex - 1;
+      
+      // Abrir modal anterior
+      setTimeout(() => {
+        const prevModal = document.getElementById(modals[currentModalIndex]);
+        const prevModalInstance = new bootstrap.Modal(prevModal);
+        prevModalInstance.show();
+      }, 300);
+    }
+    
+    // Función global para navegar al modal siguiente (con loop)
+    function goToNextModal() {
+      // Cerrar modal actual
+      const currentModal = document.getElementById(modals[currentModalIndex]);
+      const currentModalInstance = bootstrap.Modal.getInstance(currentModal);
+      currentModalInstance.hide();
+      
+      // Calcular índice siguiente con loop
+      currentModalIndex = currentModalIndex === modals.length - 1 ? 0 : currentModalIndex + 1;
+      
+      // Abrir modal siguiente
+      setTimeout(() => {
+        const nextModal = document.getElementById(modals[currentModalIndex]);
+        const nextModalInstance = new bootstrap.Modal(nextModal);
+        nextModalInstance.show();
+      }, 300);
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
+      const prevBtn = document.getElementById('modalPrevBtn');
+      const nextBtn = document.getElementById('modalNextBtn');
+      
+      // Función para mostrar flechas de navegación
+      function showNavArrows() {
+        prevBtn.style.display = 'flex';
+        nextBtn.style.display = 'flex';
+        updateArrowStates();
+      }
+      
+      // Función para ocultar flechas de navegación
+      function hideNavArrows() {
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+      }
+      
+      // Función para actualizar estado de las flechas (siempre habilitadas en loop)
+      function updateArrowStates() {
+        // En loop continuo, las flechas siempre están habilitadas
+        prevBtn.disabled = false;
+        nextBtn.disabled = false;
+      }
+      
+      // Event listeners para las flechas externas
+      prevBtn.addEventListener('click', goToPrevModal);
+      nextBtn.addEventListener('click', goToNextModal);
+      
+      // Event listeners para teclas de navegación
+      document.addEventListener('keydown', function(e) {
+        if (document.body.classList.contains('modal-open')) {
+          if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            goToPrevModal();
+          } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            goToNextModal();
+          } else if (e.key === 'Escape') {
+            // Cerrar todos los modales
+            const openModal = document.querySelector('.modal.show');
+            if (openModal) {
+              const modalInstance = bootstrap.Modal.getInstance(openModal);
+              modalInstance.hide();
+            }
+          }
+        }
+      });
+      
+      // Event listeners para cada modal
+      modals.forEach((modalId, index) => {
+        const modal = document.getElementById(modalId);
+        
+        // Cuando se abre un modal
+        modal.addEventListener('show.bs.modal', function() {
+          currentModalIndex = index;
+          showNavArrows();
+          // Prevenir scroll del body
+          document.body.style.overflow = 'hidden';
+          document.body.style.position = 'fixed';
+          document.body.style.width = '100%';
+        });
+        
+        // Cuando se cierra un modal
+        modal.addEventListener('hidden.bs.modal', function() {
+          hideNavArrows();
+          // Restaurar scroll del body
+          document.body.style.overflow = '';
+          document.body.style.position = '';
+          document.body.style.width = '';
+        });
+      });
+      
       // Funcionalidad para cerrar el menú hamburguesa al hacer clic en un enlace
       const navLinks = document.querySelectorAll('.nav-link');
       const navbarCollapse = document.querySelector('.navbar-collapse');
