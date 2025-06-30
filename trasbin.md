@@ -70,3 +70,20 @@
         observer.observe(card);
       });
     });
+
+
+
+
+
+    fortis
+    En un mundo cada vez más sedentario, nace Fortis: una plataforma educativa que te invita a reconectar con tu cuerpo y mente a través del deporte. Este curso virtual combina movimiento, salud emocional y conocimiento en un solo espacio, diseñado para acompañarte en tu camino hacia el bienestar integral. A través de módulos interactivos, recursos visuales y una experiencia accesible, Fortis te enseña a construir hábitos más saludables desde lo digital. Si quieres transformar tu rutina y cuidarte de forma consciente, Fortis es para ti.
+
+    aiden
+    nace para revolucionar la forma en que se aprende arte digital: no desde la teoría, sino desde la experiencia. No es solo aprender, es vivir el arte.
+
+Con una estética poderosa, narrativa visual envolvente y una interfaz intuitiva, AIDEN combina diseño, emoción e interactividad para enseñar de forma memorable. Su estructura por módulos integra teoría, práctica y desafíos creativos que motivan al usuario a avanzar, explorar y crear.
+
+
+Kanji 
+
+es más que un MOOC: es un espacio creativo y formativo donde aprenderás desde cero a crear y diseñar superhéroes de forma rápida y efectiva. Te convertirás en todo un creador de personajes, y aprenderás las bases de la colorimetría, el dibujo y la narrativa a tu propio ritmo, para explotar tu creatividad y estilo únicos desde cualquier dispositivo.

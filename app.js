@@ -13,15 +13,22 @@ document.addEventListener('DOMContentLoaded', function() {
       if (document.body.classList.contains('modal-open')) {
         const openModal = document.querySelector('.modal.show');
         if (openModal) {
+          const currentModalId = openModal.id;
+          const currentIndex = modals.indexOf(currentModalId);
+          
           if (e.key === 'ArrowLeft') {
             e.preventDefault();
-            const prevBtn = openModal.querySelector('.btn-link[data-bs-target]');
+            const prevIndex = currentIndex === 0 ? modals.length - 1 : currentIndex - 1;
+            const prevModalId = modals[prevIndex];
+            const prevBtn = openModal.querySelector(`[data-bs-target="#${prevModalId}"]`);
             if (prevBtn) {
               prevBtn.click();
             }
           } else if (e.key === 'ArrowRight') {
             e.preventDefault();
-            const nextBtn = openModal.querySelector('.btn-link[data-bs-target]:last-of-type');
+            const nextIndex = currentIndex === modals.length - 1 ? 0 : currentIndex + 1;
+            const nextModalId = modals[nextIndex];
+            const nextBtn = openModal.querySelector(`[data-bs-target="#${nextModalId}"]`);
             if (nextBtn) {
               nextBtn.click();
             }
@@ -37,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     
     // Controlar el scroll al abrir modales
-    const modals = ['levitinModal', 'lookModal', 'fortisModal', 'soulmiaModal', 'aidenModal', 'kanjiModal'];
+    const modals = ['levitinModal', 'lookModal', 'aidenModal', 'fortisModal', 'soulmiaModal', 'kanjiModal'];
     
     modals.forEach(modalId => {
       const modal = document.getElementById(modalId);
