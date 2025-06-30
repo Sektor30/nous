@@ -996,3 +996,105 @@ body {
       visibility: visible !important;
     }
   }
+
+  /* Estilos para logos en las cards - Responsive */
+  .card-logo {
+    max-width: 100%;
+    height: auto;
+    max-height: 120px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Responsive para diferentes tamaños de pantalla */
+  @media (max-width: 768px) {
+    .card-logo {
+      max-height: 100px;
+      margin-bottom: 15px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .card-logo {
+      max-height: 80px;
+      margin-bottom: 12px;
+    }
+  }
+  
+  /* Para pantallas menores a 760px, hacer las imágenes el doble de grandes */
+  @media (max-width: 760px) {
+    .card-logo {
+      max-height: 160px; /* El doble de 80px */
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .card-logo {
+      max-height: 140px;
+      margin-bottom: 25px;
+    }
+  }
+  
+  /* Estilos para textos de descripción en modales - 80% de ancho */
+  .modal-description {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  /* Responsive para textos de descripción */
+  @media (max-width: 768px) {
+    .modal-description {
+      width: 90%;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .modal-description {
+      width: 95%;
+    }
+  }
+  
+  /* Estilos responsive específicos para las cards */
+  @media (max-width: 991px) {
+    .card-mooc {
+      height: 450px;
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .card-mooc {
+      height: 400px;
+      margin-bottom: 16px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .card-mooc {
+      height: 380px;
+      margin-bottom: 12px;
+    }
+  }
+  
+  /* Asegurar que las cards se muestren correctamente en todos los breakpoints */
+  @media (min-width: 992px) {
+    .card-mooc {
+      height: 500px;
+      margin-bottom: 24px;
+    }
+  }
+  
+  /* Ajustes específicos para pantallas medianas */
+  @media (min-width: 768px) and (max-width: 991px) {
+    .card-mooc {
+      height: 420px;
+      margin-bottom: 18px;
+    }
+  }
+  
+  /* Los estilos de columnas ya no son necesarios porque Bootstrap los maneja automáticamente con las nuevas clases */
