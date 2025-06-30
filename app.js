@@ -3,6 +3,58 @@
   AOS.init();
 } */
 
+// Swiper para sección Sobre Nosotros
+const sobreNosotrosSwiper = new Swiper('.sobre-nosotros-swiper', {
+  effect: 'fade',
+  fadeEffect: { crossFade: true },
+  loop: true,
+  autoplay: {
+    delay: 6000,
+    disableOnInteraction: false,
+  },
+  allowTouchMove: false,
+});
+
+   // Filtros MOOC
+   document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.btn-filter');
+    const cardsRow = document.querySelector('.mooc-cards-row');
+    const cards = Array.from(document.querySelectorAll('.mooc-card'));
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        // Quitar clase activa
+        filterButtons.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const filter = this.getAttribute('data-filter');
+
+        if (filter === 'todos') {
+          cards.forEach(card => card.style.display = '');
+          // Restaurar orden original
+          cards.forEach(card => cardsRow.appendChild(card));
+        } else {
+          // Mostrar solo los de la categoría
+          cards.forEach(card => {
+            if (card.classList.contains(filter)) {
+              card.style.display = '';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+          // Reordenar según data-order
+          const filtered = cards.filter(card => card.classList.contains(filter));
+          filtered.sort((a, b) => {
+            const orderA = parseInt(a.getAttribute('data-order-' + filter)) || 99;
+            const orderB = parseInt(b.getAttribute('data-order-' + filter)) || 99;
+            return orderA - orderB;
+          });
+          filtered.forEach(card => cardsRow.appendChild(card));
+        }
+      });
+    });
+  });
+
+
 // flechas de navegacion en loop de los modales
 document.addEventListener('DOMContentLoaded', function() {
     // Variables para controlar el scroll

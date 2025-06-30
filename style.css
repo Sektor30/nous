@@ -11,6 +11,11 @@ body {
     --texto-espacio-uno:0.9px;
     --parrafo-bloque:sans-serif;
     --titulo-header:sans-serif;
+    --smalltext:12px;
+  }
+
+  .smalltext{
+    font-size:var(--smalltext)
   }
 
   .texto-espacio-uno{

@@ -105,14 +105,15 @@
     <div class="container">
       <h2 class="fw-bold mb-4" style="font-size:2rem;">Mooc's</h2>
       <div class="mb-4">
-        <button class="btn btn-filter active">Todos</button>
-        <button class="btn btn-filter">Arte</button>
-        <button class="btn btn-filter">Salud</button>
-        <button class="btn btn-filter">Mixologia</button>
+        <button class="btn btn-filter active" data-filter="todos">Todos</button>
+        <button class="btn btn-filter" data-filter="arte">Arte</button>
+        <button class="btn btn-filter" data-filter="salud">Salud</button>
+        <button class="btn btn-filter" data-filter="mixologia">Mixologia</button>
       </div>
-      <div class="row g-4">
+      <div class="row g-4 mooc-cards-row">
         
-        <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-duration="1000">
+        <!-- LEVITIN: arte, salud -->
+        <div class="col-lg-4 col-md-6 col-sm-12 mooc-card arte salud" data-aos="fade-up" data-aos-duration="1000" data-order-arte="1" data-order-salud="1">
           <div class="card-mooc levitin"  data-bs-toggle="modal" data-bs-target="#levitinModal" style="cursor:pointer;">
             <img src="./assets/img/logo-levitin-completo.png" alt="levitin Logo" class="card-logo">
             <h4 class="fw-bold mb-1">LEVITIN</h4>
@@ -121,7 +122,8 @@
           </div>
         </div>
         
-        <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-duration="2000">
+        <!-- LOOK: arte -->
+        <div class="col-lg-4 col-md-6 col-sm-12 mooc-card arte" data-aos="fade-up" data-aos-duration="2000" data-order-arte="2">
           <div class="card-mooc look"  data-bs-toggle="modal" data-bs-target="#lookModal" style="cursor:pointer;">
             <img src="./assets/img/lookLogoWh.png" alt="look Logo" class="card-logo">
             <h4 class="fw-bold mb-1">LOOK</h4>
@@ -130,7 +132,8 @@
           </div>
         </div>
         
-        <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-duration="3000">
+        <!-- AIDEN: arte -->
+        <div class="col-lg-4 col-md-6 col-sm-12 mooc-card arte" data-aos="fade-up" data-aos-duration="3000" data-order-arte="3">
           <div class="card-mooc aiden text-center p-4"  data-bs-toggle="modal" data-bs-target="#aidenModal" style="cursor:pointer;">
             <img src="./assets/img/logo-aiden.png" alt="aiden Logo" class="card-logo">
             <h4 class="fw-bold mb-1">AIDEN</h4>
@@ -139,7 +142,8 @@
           </div>
         </div>
         
-        <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-duration="200">
+        <!-- FORTIS: salud -->
+        <div class="col-lg-4 col-md-6 col-sm-12 mooc-card salud" data-aos="fade-up" data-aos-duration="200" data-order-salud="2">
           <div class="card-mooc fortis"  data-bs-toggle="modal" data-bs-target="#fortisModal" style="cursor:pointer;">
             <img src="./assets/img/fortis-logo-adjust.png" alt="fortis Logo" class="card-logo">
             <h4 class="fw-bold mb-1 ">FORTIS</h4>
@@ -148,7 +152,8 @@
           </div>
         </div>
         
-        <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-duration="500">
+        <!-- SOULMIA: mixologia -->
+        <div class="col-lg-4 col-md-6 col-sm-12 mooc-card mixologia" data-aos="fade-up" data-aos-duration="500" data-order-mixologia="1">
           <div class="card-mooc soulmia"  data-bs-toggle="modal" data-bs-target="#soulmiaModal" style="cursor:pointer;">
             <img src="./assets/img/Logosoulmia.png" alt="soulmia Logo" class="card-logo">
             <h4 class="fw-bold mt-4 mb-1">SOULMIA</h4>
@@ -157,7 +162,8 @@
           </div>
         </div>
 
-        <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-duration="1000">
+        <!-- KANJI: arte -->
+        <div class="col-lg-4 col-md-6 col-sm-12 mooc-card arte" data-aos="fade-up" data-aos-duration="1000" data-order-arte="4">
           <div class="card-mooc kanji"  data-bs-toggle="modal" data-bs-target="#kanjiModal" style="cursor:pointer;">
             <img src="./assets/img/Logo-kanji-icon.png" alt="kanji Logo" class="card-logo">
             <h4 class="fw-bold ">KANJI</h4>
@@ -505,19 +511,27 @@
   </div>
 
     <!-- Footer -->
-    <footer class="bg-navy py-4 mt-5">
-      <div class="container">
+    <footer class="bg-navy py-4 mt-5  ">
+      <div class="container ">
         <div class="row align-items-center justify-content-between">
-          <div class="col-12 col-sm-12 col-md-6 mb-4 mb-md-0">
-            <p class="footer-text text-center text-md-start">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus non ipsum cum, dolores sint provident illum, eos blanditiis praesentium reiciendis earum recusandae atque eveniet illo delectus quia. Laborum, ab sed!
-            </p>
+          <div class="col-12 col-sm-12 col-md-5 mb-4 mb-md-0">
+            <div class="footer-text text-center text-md-start">
+              <ul class="smalltext" >
+                <li class="list-unstyled col-6">Design and developed by NOUS©️</li>
+                <li class="list-unstyled col-6">2875290 - tecnología en producción Multimedia </li>
+                <li class="list-unstyled col-6">SENA - Medellín - Colombia . 2024</li>
+              
+              </ul>
+                
+          </div>
           </div>
           <div class="col-12 col-sm-12 col-md-6">
             <div class="d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-md-end">
               <span class="nous-logo text-white mb-3 mb-sm-0 me-sm-3"></span>
-              <img src="./assets/img/Nous_logo.png" alt="NOUS Logo" class="footer-logo mb-3 mb-sm-0 me-sm-3">
-              <img src="./assets/img/logosena.png" alt="SENA Logo" class="footer-logo">
+              <a href="#"><img src="./assets/img/Nous_logo.png" alt="NOUS Logo" class="footer-logo mb-3 mb-sm-0 me-sm-3"></a>
+              <a href="https://centrodeserviciosygestionempresarial.blogspot.com/" target="_blank"><img src="./assets/img/logosena.png" alt="SENA Logo" class="footer-logo"></a>
+              
+              
             </div>
           </div>
         </div>
@@ -530,17 +544,8 @@
   
   <script>
     AOS.init();
-    // Swiper para sección Sobre Nosotros
-    const sobreNosotrosSwiper = new Swiper('.sobre-nosotros-swiper', {
-      effect: 'fade',
-      fadeEffect: { crossFade: true },
-      loop: true,
-      autoplay: {
-        delay: 4000,
-        disableOnInteraction: false,
-      },
-      allowTouchMove: false,
-    });
+    
+ 
   </script>
   
 </body>
