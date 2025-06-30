@@ -166,3 +166,98 @@ document.addEventListener('DOMContentLoaded', function() {
       icon.classList.add('fa-bars');
     });
   });
+
+// --- Dots de navegación en modales MOOC ---
+const modalOrder = [
+  'levitinModal',
+  'lookModal',
+  'aidenModal',
+  'fortisModal',
+  'soulmiaModal',
+  'kanjiModal'
+];
+
+function setActiveDot(modalId) {
+  document.querySelectorAll('.modal-dots').forEach(dots => {
+    dots.querySelectorAll('.modal-dot').forEach(dot => {
+      if (dot.dataset.modal === modalId) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+  });
+}
+
+function openModalById(modalId) {
+  // Cierra cualquier modal abierto
+  const opened = document.querySelector('.modal.show');
+  if (opened) {
+    const modalInstance = bootstrap.Modal.getInstance(opened);
+    if (modalInstance) modalInstance.hide();
+  }
+  // Abre el nuevo modal
+  const modalEl = document.getElementById(modalId);
+  if (modalEl) {
+    const modal = new bootstrap.Modal(modalEl);
+    modal.show();
+  }
+}
+
+// Manejar clic en dots
+function setupModalDots() {
+  document.querySelectorAll('.modal-dot').forEach(dot => {
+    dot.addEventListener('click', function(e) {
+      const modalId = this.dataset.modal;
+      openModalById(modalId);
+    });
+  });
+}
+
+// Actualizar dot activo al abrir modal
+modalOrder.forEach(modalId => {
+  const modalEl = document.getElementById(modalId);
+  if (modalEl) {
+    modalEl.addEventListener('show.bs.modal', function() {
+      setActiveDot(modalId);
+    });
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  setupModalDots();
+});
+
+// --- Swipe para navegación en móvil ---
+function setupModalSwipe() {
+  let startX = null;
+  modalOrder.forEach(modalId => {
+    const modalEl = document.getElementById(modalId);
+    if (!modalEl) return;
+    modalEl.addEventListener('touchstart', function(e) {
+      if (e.touches.length === 1) {
+        startX = e.touches[0].clientX;
+      }
+    });
+    modalEl.addEventListener('touchend', function(e) {
+      if (startX === null) return;
+      const endX = e.changedTouches[0].clientX;
+      const diff = endX - startX;
+      if (Math.abs(diff) > 50) { // Umbral de swipe
+        const idx = modalOrder.indexOf(modalId);
+        if (diff < 0 && idx < modalOrder.length - 1) {
+          // Swipe izquierda: siguiente
+          openModalById(modalOrder[idx + 1]);
+        } else if (diff > 0 && idx > 0) {
+          // Swipe derecha: anterior
+          openModalById(modalOrder[idx - 1]);
+        }
+      }
+      startX = null;
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  setupModalSwipe();
+});

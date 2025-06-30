@@ -1102,4 +1102,26 @@ body {
     }
   }
   
-  /* Los estilos de columnas ya no son necesarios porque Bootstrap los maneja automáticamente con las nuevas clases */
+  /* Dots para los modales MOOC */
+  .modal-dots {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+  }
+  .modal-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ccc;
+    display: inline-block;
+    transition: background 0.2s;
+    cursor: pointer;
+  }
+  .modal-dot.active {
+    background: #fff;
+  }
+  @media (min-width: 768px) {
+    .modal-dots {
+      display: none !important;
+    }
+  }
