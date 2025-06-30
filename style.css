@@ -923,3 +923,70 @@ body {
     background: #7f1b33 !important;
     transition: background 100ms ease-in-out;
   }
+  @media (max-width: 800px) {
+    .modal-body .row .col-4 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .modal-body .row {
+      flex-wrap: nowrap !important;
+    }
+  }
+  @media (max-width: 450px) {
+    .row.flex-nowrap {
+      flex-wrap: nowrap !important;
+      overflow-x: auto;
+      min-width: 300px;
+    }
+    .row.flex-nowrap > [class^='col-'] {
+      min-width: 80px;
+      flex: 0 0 auto;
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      text-align: center !important;
+    }
+  }
+  /* Fila de redes sociales personalizada para el modal de LOOK */
+  .redes-sociales-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 0;
+    flex-wrap: nowrap;
+  }
+  .redes-sociales-icon {
+    flex: 1 1 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 0;
+  }
+
+  @media (max-width: 800px) {
+    .redes-sociales-row {
+      width: 100%;
+      gap: 0;
+      flex-wrap: nowrap;
+    }
+    .redes-sociales-icon {
+      flex: 1 1 0;
+      min-width: 0;
+    }
+  }
+  @media (max-width: 450px) {
+    .redes-sociales-row {
+      width: 100%;
+      gap: 0;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+    }
+    .redes-sociales-icon {
+      flex: 1 1 0;
+      min-width: 80px;
+    }
+  }
