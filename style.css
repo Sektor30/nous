@@ -990,3 +990,9 @@ body {
       min-width: 80px;
     }
   }
+
+  @media (min-width: 768px) {
+    .modal-body .btn-link[style*="visibility: hidden"] {
+      visibility: visible !important;
+    }
+  }
